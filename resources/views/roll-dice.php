@@ -39,10 +39,9 @@
         <div class="container">
             <div class="content">
                 <div class="title"><?= 'Guess is ' . $guess . ' Roll is ' . $random ?></div>
-                <div class="title"><?php if ($guess == $random) {
-                    echo 'Winner!!';
-                }
-                    ?></div>
+                <?php if ($guess == $random) : ?>
+                    <div class="title">Winner!!</div>
+                <?php endif ?>
                 
             </div>
         </div>
