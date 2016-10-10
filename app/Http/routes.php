@@ -30,3 +30,11 @@ Route::get('/', function() {
     $data['name'] = $name;
     return view('my-first-view')->with($data);
 });
+
+
+// Dice route
+Route::get('/rolldice/{guess}', function($guess) {
+    $data['random'] = rand(1,6);
+    $data['guess'] = $guess;
+    return view('roll-dice')->with($data);
+});
