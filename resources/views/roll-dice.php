@@ -39,6 +39,7 @@
         <div class="container">
             <div class="content">
                 <div class="title"><?= 'Guess is ' . $guess . ' Roll is ' . $random ?></div>
+                <!-- Can refactor out $guess == $random logic in the controller -->
                 <?php if ($guess == $random) : ?>
                     <div class="title">Winner!!</div>
                 <?php endif ?>

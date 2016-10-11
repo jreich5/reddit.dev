@@ -11,12 +11,16 @@
 |
 */
 
-Route::get('/uppercase/{word}', function($word) {
-    return strtoupper($word);
-});
+// Route::get('/uppercase/{word}', function($word) {
+//     $data['word'] = $word;
+//     $data['upperWord'] = strtoupper($word);
+//     return view('my-first-view')->with($data);
+// });
 
 Route::get('/increment/{number}', function($number) {
-    return $number + 1;
+    $data['number'] = $number;
+    $data['increment'] = $number + 1;
+    return view('my-first-view')->with($data);
 });
 
 Route::get('/add/{number1}/{number2}', function($number1, $number2) {
