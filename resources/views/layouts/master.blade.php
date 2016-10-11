@@ -4,7 +4,9 @@
     <title>Reddit</title>
 </head>
 <body>
-    <!-- @yield('case') -->
+    {{-- @yield('case') --}}
     @yield('increment')
+
+    <a href="{{ action('HomeController@increment', 5) }}">Test</a>
 </body>
 </html>

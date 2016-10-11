@@ -11,17 +11,11 @@
 |
 */
 
-// Route::get('/uppercase/{word}', function($word) {
-//     $data['word'] = $word;
-//     $data['upperWord'] = strtoupper($word);
-//     return view('my-first-view')->with($data);
-// });
+Route::get('/', 'HomeController@showWelcome');
 
-Route::get('/increment/{number}', function($number) {
-    $data['number'] = $number;
-    $data['increment'] = $number + 1;
-    return view('my-first-view')->with($data);
-});
+Route::get('/uppercase/{word}', 'HomeController@uppercase');
+Route::get('/increment/{number}', 'HomeController@increment');
+    
 
 Route::get('/add/{number1}/{number2}', function($number1, $number2) {
     return $number1 + $number2;
@@ -29,11 +23,11 @@ Route::get('/add/{number1}/{number2}', function($number1, $number2) {
 
 
 // How to pass data to the view
-Route::get('/', function() {
-    $name = 'Cameron';
-    $data['name'] = $name;
-    return view('my-first-view')->with($data);
-});
+// Route::get('/', function() {
+//     $name = 'Cameron';
+//     $data['name'] = $name;
+//     return view('my-first-view')->with($data);
+// });
 
 
 // Dice route
