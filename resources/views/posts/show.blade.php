@@ -1,13 +1,11 @@
 @extends('layouts.master')
 
 @section('content') 
-    <h1>Udpate Form</h1>
-    <form class="form" method="POST" action="{{ action('PostsController@update', 1) }}">
-        {!! csrf_field() !!}
-        {!! method_field('PUT') !!}
-        Title: <input class="form-control" type="text" name="title" value="{{ old('title') }}">
-        Content: <textarea class="form-control" name="content" rows="5" cols="40" value="{{ old('content') }}"></textarea>
-        URL: <input class="form-control" type="text" name="url" value="{{ old('url') }}">
-        <input class="btn-success btn" type="submit">
-    </form>
+    <h1>Post Info</h1>
+    <h3>{{ $post->title }}</h3> 
+    <p>{{ $post->content }}</p>
+    <a href="{{ $post->url }}">{{ $post->url }}</a>
+    <p>Posted on {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}</p>
+	<button>Edit</button>
+	<button>Delete</button>
 @stop

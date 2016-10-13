@@ -1,0 +1,17 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    margin-top: 50px;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    font-family: 'Lato';
+}
+
+
+.title {
+    font-size: 96px;
+}
