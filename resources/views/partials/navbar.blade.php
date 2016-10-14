@@ -14,7 +14,7 @@
                 <li ><a href="{{ action('PostsController@index') }}">Posts</a> </li>
                 <li> <a href="{{ action('PostsController@create') }}">Create Post</a> </li>
                 <li> <a href="#">Account</a> </li>
-                <li> <a href="#">Register</a> </li>
+                <li> <a href="{{ action('PostsController@create') }}">Register</a> </li>
                 <li> <a href="#">Login</a> </li>
                 <li> <a href="#">Logout</a> </li>
             </ul>
