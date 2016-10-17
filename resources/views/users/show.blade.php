@@ -12,7 +12,7 @@
         <br>
         <a href="{{ action('PostsController@show', $post->id) }}" class="btn btn-primary">Details</a>
         @if(Auth::id() == $user->id)
-            <a href="{{ action('PostsController@update', $post->id) }}" class="btn btn-primary">Edit</a>
+            <a href="{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
             <a href="{{ action('PostsController@destroy', $post->id) }}" class="btn btn-danger">Delete</a>
         @endif
     @endforeach

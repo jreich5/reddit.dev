@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content') 
-    <h1>Udpate Form</h1>
+    <h1>Post Update Form</h1>
     <form class="form" method="POST" action="{{ action('PostsController@update', $post->id) }}">
         {!! csrf_field() !!}
         {!! method_field('PUT') !!}

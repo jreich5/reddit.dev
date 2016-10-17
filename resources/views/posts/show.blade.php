@@ -10,11 +10,12 @@
     <br>
     @if(Auth::id() == $post->created_by)
         <form method="POST" action="{{ action('PostsController@destroy', $post->id) }}">
+            {!! csrf_field() !!}
+            {!! method_field('DELETE') !!}
             <button type="submit" name="delete" class="btn btn-danger">Delete</button>
         </form>
-        <form method="POST" action="{{ action('PostsController@edit', $post->id) }}">
-            <button type="submit" name="edit" class="btn btn-primary">Edit</button>
-        </form>
+        <a href="{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
+        
     @endif
 
 @stop
