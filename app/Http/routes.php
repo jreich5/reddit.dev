@@ -71,4 +71,11 @@ Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
 // CRUD routes...
-Route::post('posts', 'PostsController@destroy');
+Route::post('posts/{id}', function($id) {
+    PostsController::destroy($id);
+});
+
+Route::get('delete-user/{id}', function ($id) {
+    App\User::destroy($id);
+    return 'User '.$id.' deleted';
+});

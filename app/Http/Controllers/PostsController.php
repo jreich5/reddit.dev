@@ -21,10 +21,13 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        
-        $data['posts'] = Post::paginate(10);
+        if ($request->has('search')) {
+            $data['posts'] = Post::search($request->search)->orderBy('created_at', 'asc')->paginate(10);
+        } else {
+            $data['posts'] = Post::orderBy('created_at', 'asc')->paginate(10);
+        }
         return view('posts.index')->with($data);
     }
 
@@ -141,9 +144,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        echo('test');
+        dd();
         $post = Post::findOrFail($id);
         $post->delete();
-        //return redirect()->action('PostsController@index');
+        return redirect()->action('PostsController@index');
     }
 }

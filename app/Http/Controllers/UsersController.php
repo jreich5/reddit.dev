@@ -1,7 +1,8 @@
-<?php<?php
+<?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests;
+use \App\User;
 use App\Http\Controllers\Controller;
 class UsersController extends Controller
 {
@@ -10,12 +11,16 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-        $data = ['users' => $users];
+        if ($request->has('search')) {
+            $data['users'] = User::search($request->search)->paginate(10);
+        } else {
+            $data['users'] = User::paginate(10);
+        }
         return view('users.index')->with($data);
     }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -44,7 +49,8 @@ class UsersController extends Controller
     public function show($id)
     {
         $user = User::find($id);
-        $data = ['user' => $user];
+        $data['posts'] = $user->posts;
+        $data['user'] = $user;
         return view('users.show')->with($data);
     }
     /**
@@ -81,3 +87,5 @@ class UsersController extends Controller
         //
     }
 
+
+}
