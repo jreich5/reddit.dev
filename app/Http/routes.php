@@ -40,6 +40,7 @@ Route::get('/rolldice/{guess}', function($guess) {
 
 // Used to point to resource controller class
 Route::resource('posts', 'PostsController');
+Route::resource('users', 'UsersController');
 
 Route::get('orm-test', function ()
 {
@@ -58,3 +59,16 @@ Route::get('orm-test', function ()
     $post2->created_by = 1;
     $post2->save();'some content stuff';
 });
+
+
+// Authentication routes...
+Route::get('auth/login', 'Auth\AuthController@getLogin');
+Route::post('auth/login', 'Auth\AuthController@postLogin');
+Route::get('auth/logout', 'Auth\AuthController@getLogout');
+
+// Registration routes...
+Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::post('auth/register', 'Auth\AuthController@postRegister');
+
+// CRUD routes...
+Route::post('posts', 'PostsController@destroy');

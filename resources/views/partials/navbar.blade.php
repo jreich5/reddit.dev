@@ -12,11 +12,15 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li ><a href="{{ action('PostsController@index') }}">Posts</a> </li>
-                <li> <a href="{{ action('PostsController@create') }}">Create Post</a> </li>
-                <li> <a href="#">Account</a> </li>
-                <li> <a href="{{ action('PostsController@create') }}">Register</a> </li>
-                <li> <a href="#">Login</a> </li>
-                <li> <a href="#">Logout</a> </li>
+                @if(Auth::check()) 
+                    <li> <a href="{{ action('PostsController@create') }}">Create Post</a> </li>
+                    <li> <a href="{{ action('UsersController@show', Auth::id()) }}">{{ Auth::user()->name }}</a> </li>
+                    <li> <a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a> </li>
+                @else
+                    <li> <a href="{{ action('Auth\AuthController@getLogin') }}">Login</a> </li>
+                    <li> <a href="{{ action('Auth\AuthController@getRegister') }}">Register</a> </li>
+                @endif
+
             </ul>
         </div>
     </div>

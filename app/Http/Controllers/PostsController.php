@@ -11,6 +11,11 @@ use App\Http\Controllers\Controller;
 
 class PostsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -54,7 +59,7 @@ class PostsController extends Controller
         $request->session()->forget('ERROR_MESSAGE');
 
         $post = new Post();
-        $post->created_by = 1;
+        $post->created_by = $request->user()->id;
         $post->title = $request->title;
         $post->url= $request->url;
         $post->content = $request->content;
@@ -69,7 +74,6 @@ class PostsController extends Controller
         // $request->session()->flash('ERROR_MESSAGE', 'Post was not saved.')
         // $this->validate($request, $rules);
         // $request->session()->forget('ERROR_MESSAGE');
-
         
         Log::info($post);
         $request->session()->flash('SUCCESS_MESSAGE', 'Post was saved successfully');
@@ -137,8 +141,9 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
+        echo('test');
         $post = Post::findOrFail($id);
         $post->delete();
-        return redirect()->action('PostsController@index');
+        //return redirect()->action('PostsController@index');
     }
 }

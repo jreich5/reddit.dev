@@ -9,6 +9,13 @@
     <br>
     <form></form>
     <form></form>
-	<a href="{{ action('PostsController@update', $post->id) }}" class="btn btn-primary">Edit</a>
-	<a href="{{ action('PostsController@destroy', $post->id) }}" class="btn btn-danger">Delete</a>
+    @if(Auth::check())
+        <a href="{{ action('PostsController@update', $post->id) }}" class="btn btn-primary">Edit</a>
+        <a href="{{ action('PostsController@destroy', $post->id) }}" class="btn btn-danger">Delete</a>
+    @endif
+
+    <form method="POST" id="post-delete-form">
+                {{ method_field('DELETE') }}
+                {{ csrf_field() }}
+            </form>
 @stop
