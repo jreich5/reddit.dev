@@ -8,7 +8,7 @@
         <p>By {{ $post->user->name }}</p>
         <p>{{ $post->content }}</p>
         <a href="{{ $post->url }}">{{ $post->url }}</a>
-        <p>Posted on {{ $post->created_at->setTimezone('America/Chicago')->format('l, F jS Y @ h:i:s A') }}</p>
+        <p>Posted on {{ $post->created_at->setTimezone('America/Chicago')->diffForHumans() }}</p>
     	<a href="{{ action('PostsController@show', $post->id) }}" class="btn btn-primary">Details</a>
     @endforeach
 @stop

@@ -19,4 +19,12 @@
         URL: <input class="form-control" type="text" name="url" value="{{ (old('url') == null) ? $post->url : old('url') }}">
         <input class="btn-success btn" type="submit">
     </form>
+    <button onclick="goBack()" class="btn btn-warning">Cancel</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
 @stop
