@@ -16,6 +16,12 @@ class PostsController extends Controller
         $this->middleware('auth', ['except' => ['index', 'show']]);
     }
 
+    public function showWelcome()
+    {
+        $data['posts'] = Post::orderBy('created_at', 'desc')->paginate(10);
+        return view('posts.welcome')->with($data);
+    }
+
     /**
      * Display a listing of the resource.
      *

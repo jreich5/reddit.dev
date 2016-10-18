@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@showWelcome');
+Route::get('/', 'PostsController@showWelcome');
 
 
 Route::get('/uppercase/{word}', 'HomeController@uppercase');

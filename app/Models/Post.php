@@ -17,4 +17,9 @@ class Post extends BaseModel
     {
         return self::where('title', 'LIKE', '%' . $term .'%');
     }
+
+    public static function renderBody() 
+    {
+    	
+    }
 }
