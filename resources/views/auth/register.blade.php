@@ -14,9 +14,9 @@
                 </ul>
             </div>
         @endif
-        <input class="form-control" type="text" name="name" placeholder="Enter name">
+        <input class="form-control" type="text" name="name" placeholder="Enter name" value ="{{ (old('name') == null) ? null : old('name') }}">
         <br>
-        <input class="form-control" name="email" rows="5" cols="40" placeholder="Enter email"></input>
+        <input class="form-control" name="email" rows="5" cols="40" placeholder="Enter email" value ="{{ (old('email') == null) ? null : old('email') }}">
         <br>
         <input class="form-control" type="password" name="password" placeholder="Enter password">
         <br>

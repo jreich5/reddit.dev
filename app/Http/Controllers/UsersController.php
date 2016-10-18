@@ -75,6 +75,25 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $hashed_password = Hash::make($password);
+
+            $rules = array(
+            'title' => 'required',
+            'url'   => 'required',
+            'content' => 'required',
+        );
+
+        $request->session()->flash('ERROR_MESSAGE', 'User was not saved. Please see messages under inputs');
+        $this->validate($request, $rules);
+        $request->session()->forget('ERROR_MESSAGE');
+
+        $user = user::findOrFail($id);
+        $user->name = $request->name;
+        $user->email= $request->email;
+        $user->password = $request->password;
+        $user->save();
+
+        $request->session()->flash('SUCCESS_MESSAGE', 'user was updated successfully');
+        return redirect()->action('UsersController@show', $user->id);
     }
     /**
      * Remove the specified resource from storage.
