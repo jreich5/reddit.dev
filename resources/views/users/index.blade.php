@@ -9,7 +9,7 @@
     {!! $users->render() !!}
     <br>
     @foreach ($users as $user)
-        <a href="{{ action('UsersController@show', $user->id) }}">{{ $user->name }}</a>
+        <a class="userName" href="{{ action('UsersController@show', $user->id) }}">{{ $user->name }}</a>
         <p>{{ $user->email }}</p>
         <p>Member since {{ $user->created_at}}</p>
         <hr>

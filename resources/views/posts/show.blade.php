@@ -4,7 +4,7 @@
     <h1>Post Info</h1>
     <div class="row">
         {{-- Voting view solution based on https://github.com/cameronholland90/reddit.dev --}}
-        <div class="col-xs-1 score">
+        <div class="col-xs-1 scoreArrow">
             <img src="/img/arrowUp.png" data-vote="1" data-post-id="{{ $post->id }}" class="vote img-responsive center-block {{ (!is_null($user_vote) && $user_vote->vote) ? 'active' : '' }}">
             <p class="vote-score text-center" id="vote-score">{{ $post->voteScore() }}</p>
             <img src="/img/arrowDown.png" data-vote="0" data-post-id="{{ $post->id }}" class="vote img-responsive center-block {{ (!is_null($user_vote) && !$user_vote->vote) ? 'active' : '' }}">
@@ -20,7 +20,7 @@
                 <form id="delete" method="POST" action="{{ action('PostsController@destroy', $post->id) }}">
                     {!! csrf_field() !!}
                     {!! method_field('DELETE') !!}
-                    <button type="submit" name="delete" class="btn btn-danger">Delete</button>
+                    <button type="submit" name="delete" class="btn btn-danger pull-right">Delete</button>
                 </form>
                 <a href="{{ $post->id }}/edit" class="btn btn-primary">Edit</a>
             @endif

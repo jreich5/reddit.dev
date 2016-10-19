@@ -17,13 +17,14 @@ p {
 }
 
 main li {
-    height: 300px;
+    height: 275px;
 }
 
 h3 {
     font-size: 1.7em;
     font-weight: bold;
 }
+
 
 .welcome ol {
     font-size: 1em;
@@ -44,9 +45,6 @@ h3 {
     margin-bottom: 20px;
 }
 
-.score {
-    margin-top: 20px;
-}
 
 .vote {
     cursor: pointer;
@@ -58,10 +56,26 @@ h3 {
     float: none;
 }
 
+.score {
+    border: 1px solid black;
+    font-weight: bold;
+    border-radius: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.scoreArrow {
+    margin-top: 20px;
+}
 
 .navSearch {
     top: 13px;
 }
 
+
+
+.userName {
+    font-size: 1.5em;
+}
 
 

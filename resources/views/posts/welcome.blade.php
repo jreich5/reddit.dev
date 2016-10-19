@@ -11,6 +11,7 @@
             <ol class="list-group">
                 @foreach ($posts as $post)
                     <li class="list-group-item col-md-6">
+                        <p class="score pull-right panel">{{ $post->voteScore() }} Votes</p>
                         <h3>{{ $post->title }}</h3> 
                         <p>By {{ $post->user->name }}</p>
                         <p>{{  substr($post->content, 0, 140) . '...' }}</p>
