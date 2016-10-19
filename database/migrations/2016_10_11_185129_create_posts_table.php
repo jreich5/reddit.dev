@@ -17,10 +17,11 @@ class CreatePostsTable extends Migration
 
             $table->integer('created_by')->unsigned();
             $table->foreign('created_by')->references('id')->on('users');
-            
+
             $table->string('title');
             $table->string('url')->nullable();
             $table->text('content');
+            $table->integer('vote_score');
             $table->rememberToken();
             $table->timestamps();
         });

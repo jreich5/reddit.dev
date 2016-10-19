@@ -21,10 +21,10 @@
                     <li> <a href="{{ action('Auth\AuthController@getLogin') }}">Login</a> </li>
                     <li> <a href="{{ action('Auth\AuthController@getRegister') }}">Register</a> </li>
                 @endif
-                <li>
+                <li class="navSearch">
                     <form method="GET" action="{{ action('PostsController@index') }}">
                         <input type="text" placeholder="Search Posts" name="search">    
-                        <button  type="submit">Go!</button>
+                        <button type="submit">Go!</button>
                     </form>
                 </li>
             </ul>

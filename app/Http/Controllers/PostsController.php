@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Log; // Required for the log class
 use App\Models\Post;
+use App\Models\Vote;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -13,7 +14,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['index', 'show']]);
+        $this->middleware('auth', ['except' => ['index', 'show', 'showWelcome']]);
     }
 
     public function showWelcome()
@@ -95,9 +96,16 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    { 
-        $data['post'] = Post::findOrFail($id);
+    public function show(Request $request, $id)
+    {
+        // Solution from https://github.com/cameronholland90/reddit.dev/blob/master/app/Http/Controllers/PostsController.php
+        $post = Post::with('user')->findOrFail($id);
+        if ($request->user()) {
+            $user_vote = $post->userVote($request->user());
+        } else {
+            $user_vote = null;
+        }
+        $data = compact('post', 'user_vote');
         return view('posts.show')->with($data);
     }
 
@@ -140,6 +148,25 @@ class PostsController extends Controller
 
         $request->session()->flash('SUCCESS_MESSAGE', 'Post was updated successfully');
         return redirect()->action('PostsController@show', $post->id);
+    }
+
+    // Solution from https://github.com/cameronholland90/reddit.dev/blob/master/app/Http/Controllers/PostsController.php
+    public function addVote(Request $request)
+    {
+        $vote = Vote::with('post')->firstOrCreate([
+            'post_id' => $request->input('post_id'),
+            'user_id' => $request->user()->id
+        ]);
+        $vote->vote = $request->input('vote');
+        $vote->save();
+        $post = $vote->post;
+        $post->vote_score = $post->voteScore();
+        $post->save();
+        $data = [
+            'vote_score' => $post->vote_score,
+            'vote' => $vote->vote
+        ];
+        return $data;
     }
 
     /**

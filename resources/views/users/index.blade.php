@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-    <h1>List of Users</h1>
+    <h1>Users</h1>
     <form method="GET" action="{{ action('UsersController@index') }}">
         <input type="text" placeholder="Search by name" name="search">    
         <button  type="submit">Go!</button>

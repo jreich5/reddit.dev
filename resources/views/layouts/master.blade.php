@@ -37,7 +37,9 @@
             @endif
         </div>
         @yield('content')
+        <div class="copyright">Copyright &copy Justin Reich 2016</div>
     </main>
+
     
     <!-- jQuery Version 1.11.1 -->
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
@@ -47,6 +49,7 @@
 
     <!-- Custom JS -->
     @yield('bottom-script')
+    <script src="/js/votes.js"></script>
 
 </body>
 

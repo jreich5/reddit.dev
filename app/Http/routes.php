@@ -60,6 +60,7 @@ Route::get('orm-test', function ()
     $post2->save();'some content stuff';
 });
 
+Route::post('/posts/add-vote', 'PostsController@addVote');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

@@ -3,7 +3,7 @@ html, body {
 }
 
 body {
-    margin-top: 50px;
+    margin-top: 70px;
     padding: 0;
     width: 100%;
     display: table;
@@ -11,7 +11,57 @@ body {
     font-family: 'Lato';
 }
 
+p {
+    font-size: 1.2em;
+    word-wrap: break-word;
+}
+
+main li {
+    height: 300px;
+}
+
+h3 {
+    font-size: 1.7em;
+    font-weight: bold;
+}
+
+.welcome ol {
+    font-size: 1em;
+}
+
+.pagination {
+    text-align: right;
+}
 
 .title {
-    font-size: 96px;
+    font-size: 4em;
+    text-align: center;
 }
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.score {
+    margin-top: 20px;
+}
+
+.vote {
+    cursor: pointer;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+
+.navSearch {
+    top: 13px;
+}
+
+
+

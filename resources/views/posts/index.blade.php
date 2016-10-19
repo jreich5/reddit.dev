@@ -10,5 +10,6 @@
         <a href="{{ $post->url }}">{{ $post->url }}</a>
         <p>Posted on {{ $post->created_at->setTimezone('America/Chicago')->diffForHumans() }}</p>
         <a href="{{ action('PostsController@show', $post->id) }}" class="btn btn-primary">View Post</a>
+        <hr>
     @endforeach
 @stop
