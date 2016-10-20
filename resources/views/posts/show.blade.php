@@ -4,12 +4,12 @@
     <h1>Post Info</h1>
     <div class="row">
         {{-- Voting view solution based on https://github.com/cameronholland90/reddit.dev --}}
-        <div class="col-xs-1 scoreArrow">
+        <div class="col-xs-1 col-xs-offset-1 scoreArrow">
             <img src="/img/arrowUp.png" data-vote="1" data-post-id="{{ $post->id }}" class="vote img-responsive center-block {{ (!is_null($user_vote) && $user_vote->vote) ? 'active' : '' }}">
             <p class="vote-score text-center" id="vote-score">{{ $post->voteScore() }}</p>
             <img src="/img/arrowDown.png" data-vote="0" data-post-id="{{ $post->id }}" class="vote img-responsive center-block {{ (!is_null($user_vote) && !$user_vote->vote) ? 'active' : '' }}">
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-8">
             <h3>{{ $post->title }}</h3>
             <p>By <a href="{{ action('UsersController@show', $post->created_by) }}">{{ $post->user->name }}</a></p>
             <p>{{ $post->content }}</p>

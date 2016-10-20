@@ -37,7 +37,7 @@
             @endif
         </div>
         @yield('content')
-        <div class="copyright">Copyright &copy Justin Reich 2016</div>
+        <div class="copyright footer">Copyright &copy Justin Reich 2016</div>
     </main>
 
     

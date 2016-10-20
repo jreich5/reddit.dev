@@ -23,7 +23,7 @@
                 @endif
                 <li class="navSearch">
                     <form method="GET" action="{{ action('PostsController@index') }}">
-                        <input type="text" placeholder="Search Posts" name="search">    
+                        <input type="text" placeholder="Search posts" name="search">    
                         <button type="submit">Go!</button>
                     </form>
                 </li>

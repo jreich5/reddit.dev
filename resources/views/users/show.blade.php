@@ -2,7 +2,7 @@
 
 @section('content') 
     <div class="row jumbotron">
-        <div class="col-md-4 col-md-offset-4 text-center">
+        <div class="col-xs-4 col-xs-offset-4 text-center">
             <h1>{{ $user->name }}</h1> 
             <p>Member since {{ $user->created_at->setTimezone('America/Chicago')->format('l, F jS Y') }}</p>
             <p>{{ $user->email }}</p>
